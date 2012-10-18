@@ -12,3 +12,16 @@ background-image:-moz-linear-gradient(top,#ffffff 0%,#3e9ad2 100%);
 background-image:-o-linear-gradient(top,#ffffff 0%,#3e9ad2 100%);
 background-image:-ms-linear-gradient(top,#ffffff 0%,#3e9ad2 100%);
 background-image:linear-gradient(top,#ffffff 0%,#3e9ad2 100%);}
+#j {
+   list-style: square;
+   margin: 306px 0px;
+   
+   background-color: rgba(248, 248, 248, 0.5); 
+  padding: 10px 15px 10px 15px ;
+   width:auto;
+   -webkit-border-radius:50px;
+   border-radius: 50px;
+   padding-left:20px;
+   margin-bottom:100px;
+  
+}

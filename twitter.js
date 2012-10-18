@@ -18,34 +18,42 @@ multunus_app = {
                 count: multunus_app.numTweets,
                 include_entities: true
             },
+               error:function(xhr,status,error)
+                {
+                 alert("Oops . Some network probs :(");
+               },
             success: function(data, textStatus, xhr) {
-  
-               var count=0;
+           var visited = new Array();
+            if(data==undefined)
+              alert("error");
+               
                    var final="";
                  for (var i = 0; i < data.length; i++) 
                        {
-                        for(var j=0;j<data[i].text.length;j++)
-                        {
-                         if(data[i].text.charAt(j)==' ')
-                           count=count+1;
-                        }
-                    final=final+"<li>"+count+"</li>";
+                       var count=0;
+                       var y=data[i].text;
+                       a=y.replace(/\s/g,' ');
+			a=a.split(' ');
+			for (z=0; z<a.length; z++) 
+                         { 
+                           if (a[z].length > 0) count++;
+                         }
+                       if(visited[count]!=1)
+                       {
+ 				final=final+"<li>"+count+"</li>";
+				visited[count]=1;
+           
+                       }
+                      
+                   
                     
                     
                  }
+            
                    document.getElementById("jcloud-tags").innerHTML=final;
-                $('ul#jcloud-tags').jcloud({
-		radius:600,          //    cloud radius
-		size:30,             //    tags font size
-		step:2,              //    cloud step
-		speed:50,            //    cloud speed
-		flats:2,             //    flats count
-		clock:10,            //    timer interval
-		areal:100,           //    cloud areal
-		splitX:100,          //    X-axis delta
-		splitY:100,          //    Y-axis delta
-		colors:['#000000','#DD2222','#2267DD','#2A872B','#872A7B','#CAC641']
-	});               
+               
+		$("#jcloud-tags").tagcloud({type:"sphere",sizemin:8,height:100,colormin:"d88",colormax:"0a0"});
+
             }  
  
         });
